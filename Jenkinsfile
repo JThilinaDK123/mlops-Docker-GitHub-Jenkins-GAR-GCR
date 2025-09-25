@@ -5,7 +5,7 @@ pipeline {
         VENV_DIR   = 'venv'
         GCP_PROJECT = "mlops-thilina"
         GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
-        IMAGE_NAME  = "gcr.io/${GCP_PROJECT}/ml-project:latest"
+        IMAGE_NAME  = "us-central1-docker.pkg.dev/mlops-thilina/mlops-project/mlops-app-project-01:latest"
     }
 
     stages {
@@ -91,7 +91,7 @@ pipeline {
                         gcloud config set project ${GCP_PROJECT}
 
                         gcloud run deploy ml-project \
-                            --image=gcr.io/${GCP_PROJECT}/ml-project:latest \
+                            --image=us-central1-docker.pkg.dev/mlops-thilina/mlops-project/mlops-app-project-01:latest \
                             --platform=managed \
                             --region=us-central1 \
                             --allow-unauthenticated 
